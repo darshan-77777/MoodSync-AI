@@ -82,3 +82,9 @@ li{
   border-radius:10px;
   margin-bottom:12px;
 }
+#previewImage{
+  width:100%;
+  margin-top:20px;
+  border-radius:15px;
+  display:block;
+}
