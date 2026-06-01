@@ -19,3 +19,9 @@ imageInput.addEventListener("change", function(event){
   }
 
 });
+function setEmotion(emotion){
+
+  document.getElementById("emotionText")
+    .textContent = emotion;
+
+}
