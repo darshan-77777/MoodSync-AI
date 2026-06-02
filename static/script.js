@@ -21,8 +21,16 @@ imageInput.addEventListener("change", function(event){
 });
 function setEmotion(emotion){
 {
-  document.getElementById("emotionText")
-  let resultBox =
+document.getElementById("emotionText")
+  .textContent = emotion;
+  emotionHistory.push(emotion);
+
+document.getElementById("historyList")
+  .innerHTML =
+  emotionHistory
+    .map(item => `<li>${item}</li>`)
+    .join("");
+   
   document.getElementById("resultBox");
 
 if(emotion.includes("Happy")){
@@ -52,7 +60,7 @@ else{
     "#22c55e";
 
 }
-    .textContent = emotion;
+   
 
   let songs = [];
 
