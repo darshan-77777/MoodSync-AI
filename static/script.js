@@ -22,6 +22,36 @@ imageInput.addEventListener("change", function(event){
 function setEmotion(emotion){
 {
   document.getElementById("emotionText")
+  let resultBox =
+  document.getElementById("resultBox");
+
+if(emotion.includes("Happy")){
+
+  resultBox.style.background =
+    "#facc15";
+
+}
+
+else if(emotion.includes("Sad")){
+
+  resultBox.style.background =
+    "#3b82f6";
+
+}
+
+else if(emotion.includes("Angry")){
+
+  resultBox.style.background =
+    "#ef4444";
+
+}
+
+else{
+
+  resultBox.style.background =
+    "#22c55e";
+
+}
     .textContent = emotion;
 
   let songs = [];
