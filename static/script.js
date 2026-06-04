@@ -24,7 +24,10 @@ function setEmotion(emotion){
 document.getElementById("emotionText")
   .textContent = emotion;
   emotionHistory.push(emotion);
-
+document.getElementById("emotionCount")
+  .textContent =
+  "Total Emotions Tracked : " +
+  emotionHistory.length;
 document.getElementById("historyList")
   .innerHTML =
   emotionHistory
@@ -117,5 +120,7 @@ function clearHistory(){
 
   document.getElementById("historyList")
     .innerHTML = "";
-
+document.getElementById("emotionCount")
+  .textContent =
+  "Total Emotions Tracked : 0";
 }
