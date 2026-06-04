@@ -111,3 +111,11 @@ else{
 }
 
 }
+function clearHistory(){
+
+  emotionHistory = [];
+
+  document.getElementById("historyList")
+    .innerHTML = "";
+
+}
