@@ -1,3 +1,4 @@
+let recentRecommendations = [];
 const imageInput =
   document.getElementById("imageInput");
 
@@ -28,6 +29,14 @@ document.getElementById("emotionText")
   "emotionHistory",
   JSON.stringify(emotionHistory)
 );
+recentRecommendations = songs;
+
+document.getElementById("recentSongs")
+  .innerHTML =
+  recentRecommendations
+    .map(song => `<li>${song}</li>`)
+    .join("");
+    
 document.getElementById("emotionCount")
   .textContent =
   "Total Emotions Tracked : " +
