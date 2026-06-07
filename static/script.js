@@ -24,6 +24,10 @@ function setEmotion(emotion){
 document.getElementById("emotionText")
   .textContent = emotion;
   emotionHistory.push(emotion);
+  localStorage.setItem(
+  "emotionHistory",
+  JSON.stringify(emotionHistory)
+);
 document.getElementById("emotionCount")
   .textContent =
   "Total Emotions Tracked : " +
@@ -116,6 +120,9 @@ else{
 }
 function clearHistory(){
 
+  localStorage.removeItem(
+  "emotionHistory"
+);
   emotionHistory = [];
 
   document.getElementById("historyList")
@@ -124,3 +131,27 @@ document.getElementById("emotionCount")
   .textContent =
   "Total Emotions Tracked : 0";
 }
+function loadHistory(){
+
+  let savedHistory =
+    localStorage.getItem("emotionHistory");
+
+  if(savedHistory){
+
+    emotionHistory =
+      JSON.parse(savedHistory);
+
+    document.getElementById("historyList")
+      .innerHTML =
+      emotionHistory
+        .map(item => `<li>${item}</li>`)
+        .join("");
+
+    document.getElementById("emotionCount")
+      .textContent =
+      "Total Emotions Tracked : " +
+      emotionHistory.length;
+  }
+}
+
+loadHistory();
