@@ -52,7 +52,10 @@ else{
 
 document.getElementById("emotionDescription")
   .textContent = description;
+
+document.getElementById("emotionText")
   .textContent = emotion;
+
   emotionHistory.push(emotion);
   localStorage.setItem(
   "emotionHistory",
@@ -151,10 +154,17 @@ else{
 
   }
 
-  document.getElementById("songList")
-    .innerHTML = songs
-    .map(song => `<li>${song}</li>`)
-    .join("");
+ document.getElementById("songList")
+  .innerHTML = songs
+  .map(song => `
+    <li>
+      ${song}
+      <button onclick="addFavorite('${song}')">
+        ⭐
+      </button>
+    </li>
+  `)
+  .join("");
 }
 
 }
@@ -195,3 +205,15 @@ function loadHistory(){
 }
 
 loadHistory();
+let favoriteSongs = [];
+
+function addFavorite(song){
+
+  favoriteSongs.push(song);
+
+  document.getElementById("favoriteSongs")
+    .innerHTML =
+    favoriteSongs
+      .map(item => `<li>${item}</li>`)
+      .join("");
+}
