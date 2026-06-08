@@ -23,11 +23,42 @@ imageInput.addEventListener("change", function(event){
 function setEmotion(emotion){
 {
 document.getElementById("emotionText")
+let description = "";
+
+if(emotion.includes("Happy")){
+
+  description =
+    "You seem cheerful and energetic today.";
+
+}
+else if(emotion.includes("Sad")){
+
+  description =
+    "You may need some calm and comforting music.";
+
+}
+else if(emotion.includes("Angry")){
+
+  description =
+    "Try relaxing and releasing stress positively.";
+
+}
+else{
+
+  description =
+    "You appear calm and balanced today.";
+
+}
+
+document.getElementById("emotionDescription")
+  .textContent = description;
   .textContent = emotion;
   emotionHistory.push(emotion);
   localStorage.setItem(
   "emotionHistory",
+  
   JSON.stringify(emotionHistory)
+  
 );
 recentRecommendations = songs;
 
