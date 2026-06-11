@@ -100,3 +100,8 @@ li{
   font-size:18px;
   line-height:1.5;
 }
+#moodQuote{
+  font-style: italic;
+  margin-top: 15px;
+  text-align: center;
+}

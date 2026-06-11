@@ -40,6 +40,36 @@ else{
 document.getElementById("moodScore")
   .textContent =
   "Mood Score : " + score + "/100";
+  let quote = "";
+
+if(emotion.includes("Happy")){
+
+  quote =
+    "Keep spreading positivity wherever you go.";
+
+}
+else if(emotion.includes("Sad")){
+
+  quote =
+    "Every difficult day eventually passes.";
+
+}
+else if(emotion.includes("Angry")){
+
+  quote =
+    "Take a pause before reacting.";
+
+}
+else{
+
+  quote =
+    "Peace comes from within.";
+
+}
+
+document.getElementById("moodQuote")
+  .textContent = quote;
+  
 document.getElementById("emotionText")
 let description = "";
 
