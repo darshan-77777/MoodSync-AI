@@ -22,6 +22,24 @@ imageInput.addEventListener("change", function(event){
 });
 function setEmotion(emotion){
 {
+  let score = 0;
+
+if(emotion.includes("Happy")){
+  score = 95;
+}
+else if(emotion.includes("Sad")){
+  score = 40;
+}
+else if(emotion.includes("Angry")){
+  score = 30;
+}
+else{
+  score = 80;
+}
+
+document.getElementById("moodScore")
+  .textContent =
+  "Mood Score : " + score + "/100";
 document.getElementById("emotionText")
 let description = "";
 
