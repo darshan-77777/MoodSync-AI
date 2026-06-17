@@ -257,11 +257,33 @@ let favoriteSongs = [];
 
 function addFavorite(song){
 
-  favoriteSongs.push(song);
+  if(!favoriteSongs.includes(song)){
+
+    favoriteSongs.push(song);
+
+    localStorage.setItem(
+      "favoriteSongs",
+      JSON.stringify(favoriteSongs)
+    );
+
+    renderFavorites();
+  }
+}
+function renderFavorites(){
 
   document.getElementById("favoriteSongs")
     .innerHTML =
     favoriteSongs
-      .map(item => `<li>${item}</li>`)
+      .map(song => `<li>${song}</li>`)
       .join("");
+}
+let savedFavorites =
+  localStorage.getItem("favoriteSongs");
+
+if(savedFavorites){
+
+  favoriteSongs =
+    JSON.parse(savedFavorites);
+
+  renderFavorites();
 }
