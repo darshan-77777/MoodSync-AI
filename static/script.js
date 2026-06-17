@@ -105,6 +105,7 @@ document.getElementById("emotionText")
   .textContent = emotion;
 
   emotionHistory.push(emotion);
+  updateTopMood();
   localStorage.setItem(
   "emotionHistory",
   
@@ -253,6 +254,7 @@ function loadHistory(){
 }
 
 loadHistory();
+updateTopMood();
 let favoriteSongs = [];
 
 function addFavorite(song){
@@ -286,4 +288,28 @@ if(savedFavorites){
     JSON.parse(savedFavorites);
 
   renderFavorites();
+}
+function updateTopMood(){
+
+  if(emotionHistory.length === 0){
+    return;
+  }
+
+  let count = {};
+
+  emotionHistory.forEach(item => {
+
+    count[item] =
+      (count[item] || 0) + 1;
+
+  });
+
+  let winner =
+    Object.keys(count).reduce((a,b)=>
+      count[a] > count[b] ? a : b
+    );
+
+  document.getElementById("topMood")
+    .textContent =
+    "Top Mood Today: " + winner;
 }
