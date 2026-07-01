@@ -276,8 +276,15 @@ function renderFavorites(){
   document.getElementById("favoriteSongs")
     .innerHTML =
     favoriteSongs
-      .map(song => `<li>${song}</li>`)
-      .join("");
+  .map(song => `
+    <li>
+      ${song}
+      <button onclick="removeFavorite('${song}')">
+        ❌
+      </button>
+    </li>
+  `)
+   {}
 }
 let savedFavorites =
   localStorage.getItem("favoriteSongs");
@@ -312,4 +319,16 @@ function updateTopMood(){
   document.getElementById("topMood")
     .textContent =
     "Top Mood Today: " + winner;
+}
+function removeFavorite(song){
+
+  favoriteSongs =
+    favoriteSongs.filter(item => item !== song);
+
+  localStorage.setItem(
+    "favoriteSongs",
+    JSON.stringify(favoriteSongs)
+  );
+
+  renderFavorites();
 }
